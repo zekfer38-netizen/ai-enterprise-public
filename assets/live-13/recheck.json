@@ -1,0 +1,22 @@
+{
+  "checkedAtUtc": "2026-08-30T18:03:03Z",
+  "url": "https://sanrich.ru/contact-us/",
+  "browser": "Chromium 151.0.7922.108 snap",
+  "viewport": {"width": 375, "height": 667},
+  "input": "five Input.dispatchMouseEvent mouseWheel actions, then a mouse click",
+  "beforeMouseWheel": {
+    "scrollY": 0,
+    "class": "scroll-top",
+    "rect": {"left": 425, "top": 592, "right": 475, "bottom": 642}
+  },
+  "afterMouseWheel": {
+    "scrollY": 1421,
+    "class": "scroll-top active",
+    "rect": {"left": 300, "top": 592, "right": 350, "bottom": 642}
+  },
+  "afterMouseClick": {
+    "scrollY": 0,
+    "class": "scroll-top",
+    "rect": {"left": 425, "top": 592, "right": 475, "bottom": 642}
+  }
+}
