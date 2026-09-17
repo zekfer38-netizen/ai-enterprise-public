@@ -1,0 +1,151 @@
+{
+  "summary": "A real 130,997-byte PNG was committed to Ausca, analyzed with FORMS, TABLES, and LAYOUT, paid with 0.30 USDC over x402 on Base, polled to succeeded, and validated against the published output schema and digests. The run succeeded, while the public receipt page exposed three concrete verification and documentation gaps described below.",
+  "run": {
+    "started_at": "2026-09-17T12:13:56.568Z",
+    "completed_at": "2026-09-17T12:15:20.970Z",
+    "invocation_id": "paid_91e461ca-14bb-4b00-9e36-8cf20880f9ee",
+    "offer_id": "document.analysis",
+    "offer_revision": "analysis-bytes-r5",
+    "offer_revision_digest": "sha256:cd8234fa3f599d975f1915bbc9c702aefa04cd4933d41d1914431c7a334f6fa2",
+    "input_schema_digest": "sha256:7093216a29925031972d61a7ab5f6013936aac9f81c3c54f51a00a3fef66759b",
+    "output_schema_digest": "sha256:f42f96f66e7ea9a7f2ec579d0edf92e5bfafbfa070005de7b56917866e2b8a55",
+    "canonicalizer_version": "runx.receipt.c14n.v1",
+    "idempotency_key": "nol-frantic-132-analysis-20260917-v1",
+    "request_body_sha256": "de2cba33335a4887c41359075f21590a90b17ba6d46ea9706b7d82a6cdb729e5",
+    "output_digest": "sha256:3975e51326767f1158503b193a24901324e6e95f18104a1cebf9b82efc3b3027",
+    "receipt_ref": "runx:receipt:sha256:e073e971022e1e41f74f27497a65be4caf41834082d1b69a85826e78d2427b32",
+    "receipt_url": "https://runx.ai/r/e073e971022e1e41f74f27497a65be4caf41834082d1b69a85826e78d2427b32"
+  },
+  "input_artifact": {
+    "artifact_ref": "runx:artifact:sha256:0ab50ddacf9c7fef0a6f9b241ea4d0188bc3a2efa1c368157232afe3b23c7d6d",
+    "content_digest": "sha256:83510fb2d1dee17c6a5a27f5537cb9207ebd53080f86ee37002bfe5f21f50333",
+    "media_type": "image/png",
+    "size_bytes": 130997,
+    "feature_types": ["FORMS", "TABLES", "LAYOUT"]
+  },
+  "payment": {
+    "amount": "300000",
+    "currency": "USDC",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "network": "eip155:8453",
+    "payTo": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+    "payer": "0x8A17AffDD899e5C1232C534CF1E4DD05d8eD27AD",
+    "transaction": "0xfbf7c2fc0d4b4959dab1fd29d1e827661af1e69581eee4070d73db94c32c45f8",
+    "transaction_status": 1,
+    "block_number": 51428973
+  },
+  "output": {
+    "state": "succeeded",
+    "schema": "ausca.document_analysis.manifest.v1",
+    "page_count": 1,
+    "page_artifact_ref": "runx:artifact:sha256:b3fcdfc0ef038c50eca1de02ba138216123beb6573407f744e35b6ac7924fdad",
+    "page_content_digest": "sha256:26adfed9f30fbebe5c897923601a0d34647858ab7bd38c2d3616829b54e98c61",
+    "page_size_bytes": 2956,
+    "schema_valid": true,
+    "output_digest_match": true,
+    "page_artifact_digest_match": true
+  },
+  "actual_requests": [
+    {
+      "method": "POST",
+      "url": "https://ausca.com/v1/artifacts",
+      "status": 200,
+      "note": "Four documented fields were sent. The 130,997-byte PNG payload is omitted here; its digest is recorded above."
+    },
+    {
+      "method": "POST",
+      "url": "https://ausca.com/v1/analyze-document",
+      "status": 402,
+      "headers": {"Content-Type": "application/json"},
+      "body_sha256": "de2cba33335a4887c41359075f21590a90b17ba6d46ea9706b7d82a6cdb729e5"
+    },
+    {
+      "method": "POST",
+      "url": "https://ausca.com/v1/analyze-document",
+      "status": 202,
+      "headers": {"Content-Type": "application/json", "PAYMENT-SIGNATURE": "<redacted-payment-signature>"},
+      "body_sha256": "de2cba33335a4887c41359075f21590a90b17ba6d46ea9706b7d82a6cdb729e5"
+    },
+    {
+      "method": "GET",
+      "url": "https://ausca.com/v1/invocations/paid_91e461ca-14bb-4b00-9e36-8cf20880f9ee",
+      "status": 200,
+      "polls": 6
+    },
+    {
+      "method": "POST",
+      "url": "https://ausca.com/v1/artifacts/runx%3Aartifact%3Asha256%3Ab3fcdfc0ef038c50eca1de02ba138216123beb6573407f744e35b6ac7924fdad/access",
+      "status": 200,
+      "headers": {"Idempotency-Key": "nol-frantic-132-result-access-20260917-v2"}
+    }
+  ],
+  "observations": [
+    {
+      "step": "discovery",
+      "elapsed_ms": 220,
+      "evidence": "A timed re-fetch of https://ausca.com/skills/document-analysis/SKILL.md and https://ausca.com/catalog.json returned HTTP 200. Catalog bindings matched revision analysis-bytes-r5 and both schema digests.",
+      "finding": "The live 402 Bazaar extension later advertised a different runner/inputs request example than the InvocationEnvelope actually required."
+    },
+    {
+      "step": "artifact_commit",
+      "elapsed_ms": 2159,
+      "evidence": "POST /v1/artifacts returned 200 stored with input artifact ref runx:artifact:sha256:0ab50d... and the exact local SHA-256 digest, media type, and 130,997-byte size.",
+      "finding": "No account or provider credential was needed."
+    },
+    {
+      "step": "challenge",
+      "elapsed_ms": 5193,
+      "evidence": "The unsigned POST /v1/analyze-document returned 402 with PAYMENT-REQUIRED x402Version 2: amount 300000, USDC asset 0x8335...2913, network eip155:8453, payTo 0x2657...b422.",
+      "finding": "The 402 JSON body itself only said payment_required; all actionable terms were in the encoded response header."
+    },
+    {
+      "step": "payment",
+      "elapsed_ms": 3624,
+      "evidence": "The same 750-byte request body (SHA-256 de2cba...29e5) was retried with PAYMENT-SIGNATURE. PAYMENT-RESPONSE named payer 0x8A17...27AD and Base transaction 0xfbf7...45f8. eth_getTransactionReceipt returned status 1 in block 51428973.",
+      "finding": "Exactly 0.30 USDC settled."
+    },
+    {
+      "step": "invocation",
+      "elapsed_ms": 3624,
+      "evidence": "The paid request returned HTTP 202 with status=accepted, state=admitted, invocation_id=paid_91e461ca-14bb-4b00-9e36-8cf20880f9ee, and inspect_url=/v1/invocations/{id}.",
+      "finding": "Payment and admission share one round trip, so their measured time is the same."
+    },
+    {
+      "step": "wait",
+      "elapsed_ms": 27800,
+      "evidence": "Six GET polls were made. Five observed running; the sixth observed succeeded. Server timestamps span admitted at 12:14:51.342Z to succeeded at 12:15:20.970Z.",
+      "finding": "The asynchronous state transition was clear and stable."
+    },
+    {
+      "step": "result_retrieval",
+      "elapsed_ms": 1953,
+      "evidence": "POST /v1/artifacts/{artifact_ref}/access returned a short-lived URL; 2,956 downloaded bytes hashed to sha256:26adfe...8c61, matching the page manifest.",
+      "finding": "The OpenAPI component CreateArtifactAccessInput models artifact_ref and idempotency_key as body fields, while the HTTP operation binds them as a path parameter and Idempotency-Key header."
+    },
+    {
+      "step": "result_validation",
+      "elapsed_ms": 1,
+      "evidence": "jsonschema validation passed against the published document-analysis.output.schema.json whose raw SHA-256 matches f42f96...b8a55. Canonical compact JSON hashed to sha256:3975e5...3027, exactly output_digest.",
+      "finding": "The result manifest and referenced page artifact both validated."
+    },
+    {
+      "step": "receipt",
+      "elapsed_ms": 594,
+      "evidence": "GET https://runx.ai/r/e073e971... returned 200 and stated that Ausca Document Analysis completed at Sep 17, 2026 12:15 PM.",
+      "finding": "The page labels the proof L1 Notarized/hash only and the edge key unclaimed; it does not expose offer_id document.analysis, the 0.30 USDC amount, payer, or transaction."
+    },
+    {
+      "step": "receipt_json_link",
+      "elapsed_ms": 262,
+      "evidence": "The receipt page advertises rel=alternate application/json at /v1/receipts/notarizations/e073e971..., but a direct GET returned HTTP 404.",
+      "finding": "The advertised machine-readable receipt URL is dead."
+    },
+    {
+      "step": "total_elapsed",
+      "elapsed_ms": 84402,
+      "evidence": "Measured from the start of the artifact upload at 12:13:56.568Z through terminal succeeded at 12:15:20.970Z.",
+      "finding": "The run itself completed in 84.402 seconds; later verification and report publication are excluded."
+    }
+  ],
+  "proposed_change": "Make the public receipt page a self-contained proof surface: render offer_id, settled amount/asset/network, payer, transaction, and claimed Ausca notary identity from the receipt, and make the advertised alternate JSON endpoint return that same verified record. This directly fixes the two receipt-step failures and makes the bounty's stated review gate possible without a separate private lookup."
+}
