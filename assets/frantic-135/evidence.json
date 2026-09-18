@@ -1,0 +1,207 @@
+{
+  "summary": "A real one-hour Ausca Agent Inbox was bought for 0.05 USDC over x402, used to receive and read one controlled email, and then deleted. The invocation, output schema and digest, Base transfer, mailbox lifecycle, and terminal deletion were independently verified; the report also records a recovery replay that charged nothing and three concrete discovery or receipt gaps.",
+  "run": {
+    "started_at": "2026-09-18T06:06:55.000Z",
+    "completed_at": "2026-09-18T06:07:49.250Z",
+    "invocation_id": "paid_f88a1305-5530-46a5-9f89-b0750eef76be",
+    "offer_id": "inbox.receive",
+    "offer_revision": "receive-duration-r3",
+    "offer_revision_digest": "sha256:a1f12228899f20a4a81828e8473926a364d2b156cb079422cc8229dbe7688753",
+    "input_schema_digest": "sha256:a97f97a65bc02cd9267c048f17d06cef63f5c4b74b6cc4f9f9071684b3f943be",
+    "output_schema_digest": "sha256:b7435b8fca878463b21532066b8c645c05cf82c61ed040f609b7f048393d63c6",
+    "idempotency_key": "nol-frantic-135-inbox-20260918-v1",
+    "request_body_sha256": "ed6fa35a420475116f86085b17b99f679c6c05cecacdcfd4e4ce1f208dfe4416",
+    "output_digest": "sha256:d36454fb427d0a97259af04ed21deedb6e34df2f8257b031dba70ebb5c7d9a95",
+    "receipt_ref": "runx:receipt:sha256:54e383b06045239f6aed302b5aee030dd165eae4b2f93609de8131586cc72fcb",
+    "receipt_url": "https://runx.ai/r/54e383b06045239f6aed302b5aee030dd165eae4b2f93609de8131586cc72fcb"
+  },
+  "payment": {
+    "amount": "50000",
+    "currency": "USDC",
+    "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+    "network": "eip155:8453",
+    "payTo": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+    "payer": "0x8A17AffDD899e5C1232C534CF1E4DD05d8eD27AD",
+    "transaction": "0xccda083a00269bb5fe5cd7033344ad49943c67a42063e7b3395889ffca3b9f39",
+    "transaction_status": 1,
+    "block_number": 51461134,
+    "block_time": "2026-09-18T06:06:55Z",
+    "wallet_before_purchase_usdc": 0.71,
+    "wallet_after_purchase_usdc": 0.66,
+    "wallet_after_recovery_replay_usdc": 0.66
+  },
+  "output": {
+    "state": "succeeded",
+    "updated_at": "2026-09-18T06:06:59.952Z",
+    "schema": "ausca.agent_inbox.lease.v1",
+    "lease_seconds": 3600,
+    "created_at": "2026-09-18T06:06:55.873Z",
+    "expires_at": "2026-09-18T07:06:55.873Z",
+    "inbox_id_digest": "sha256:4129db06b62191aa72a25753bd205ac015eaedfb85f872d1b4a95efc5f1750e3",
+    "schema_valid": true,
+    "output_digest_match": true,
+    "address_withheld": true,
+    "capabilities_withheld": true
+  },
+  "message_check": {
+    "sent_by_controlled_account": true,
+    "smtp_accepted": true,
+    "received_at": "2026-09-18T06:07:03.323Z",
+    "message_id_digest": "sha256:55df1bab5c349180218c30c79950b289270ede78d6430806f416ab9829c0569c",
+    "subject_matched": true,
+    "body_token_matched": true,
+    "attachment_count": 0,
+    "list_http_status": 200,
+    "read_http_status": 200,
+    "delete_http_status": 200,
+    "delete_status": "deleted",
+    "verified_terminal_state": "deleted"
+  },
+  "actual_requests": [
+    {
+      "method": "GET",
+      "url": "https://ausca.com/.well-known/x402",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://ausca.com/v1/offers?q=agent%20inbox&limit=20",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://ausca.com/v1/offers/inbox.receive?revision_digest=sha256:a1f12228899f20a4a81828e8473926a364d2b156cb079422cc8229dbe7688753",
+      "status": 200
+    },
+    {
+      "method": "POST",
+      "url": "https://ausca.com/v1/open-inbox",
+      "status": 402,
+      "headers": {"Content-Type": "application/json"},
+      "body": {"offer_id": "inbox.receive", "offer_revision": "receive-duration-r3", "offer_revision_digest": "sha256:a1f12228899f20a4a81828e8473926a364d2b156cb079422cc8229dbe7688753", "input_schema_digest": "sha256:a97f97a65bc02cd9267c048f17d06cef63f5c4b74b6cc4f9f9071684b3f943be", "output_schema_digest": "sha256:b7435b8fca878463b21532066b8c645c05cf82c61ed040f609b7f048393d63c6", "input": {"duration_seconds": 3600}, "idempotency_key": "nol-frantic-135-inbox-20260918-v1"}
+    },
+    {
+      "method": "POST",
+      "url": "https://ausca.com/v1/open-inbox",
+      "status": 200,
+      "headers": {"Content-Type": "application/json", "PAYMENT-SIGNATURE": "<redacted-payment-signature>"},
+      "body_sha256": "ed6fa35a420475116f86085b17b99f679c6c05cecacdcfd4e4ce1f208dfe4416"
+    },
+    {
+      "method": "GET",
+      "url": "https://ausca.com/v1/invocations/paid_f88a1305-5530-46a5-9f89-b0750eef76be",
+      "status": 200
+    },
+    {
+      "method": "GET",
+      "url": "https://ausca.com/v1/agent-inboxes/<withheld-inbox-id>",
+      "status": 200,
+      "headers": {"Authorization": "Bearer <redacted-capability>"}
+    },
+    {
+      "method": "GET",
+      "url": "https://ausca.com/v1/agent-inboxes/<withheld-inbox-id>/messages?wait_seconds=30",
+      "status": 200,
+      "headers": {"Authorization": "Bearer <redacted-capability>"}
+    },
+    {
+      "method": "GET",
+      "url": "https://ausca.com/v1/agent-inboxes/<withheld-inbox-id>/messages/<withheld-message-id>",
+      "status": 200,
+      "headers": {"Authorization": "Bearer <redacted-capability>"}
+    },
+    {
+      "method": "DELETE",
+      "url": "https://ausca.com/v1/agent-inboxes/<withheld-inbox-id>",
+      "status": 200,
+      "headers": {"Authorization": "Bearer <redacted-capability>"}
+    }
+  ],
+  "observations": [
+    {
+      "step": "discovery",
+      "elapsed_ms": 456,
+      "evidence": "Timed HTTP 200 reads took 79 ms for /.well-known/x402, 223 ms for /v1/offers?q=agent inbox, and 154 ms for the revision-pinned /v1/offers/inbox.receive response. The latter fixed revision receive-duration-r3 and all three digests.",
+      "finding": "The root x402 description says 'Extract normalized text from a scanned document' even though this run was looking for Agent Inbox."
+    },
+    {
+      "step": "challenge",
+      "elapsed_ms": 235,
+      "evidence": "An unsigned byte-for-byte POST /v1/open-inbox returned HTTP 402 with x402 v2 terms: 50000 units, USDC asset 0x833589...2913, network eip155:8453, payTo 0x26572f...b422.",
+      "finding": "The challenge was actionable and matched the documented 0.05 USDC one-hour price."
+    },
+    {
+      "step": "payment",
+      "elapsed_ms": 976,
+      "evidence": "A measured authenticated replay of the exact 331-byte request returned HTTP 200 and the original invocation. The wallet was 0.66 USDC before and after that replay, proving no second charge. The original Base transaction transferred exactly 50000 atomic USDC from the payer to payTo and has status 1 in block 51461134.",
+      "finding": "Idempotent recovery worked after the client lost the first response's capability."
+    },
+    {
+      "step": "invocation",
+      "elapsed_ms": 4079,
+      "evidence": "The resource was created at 06:06:55.873Z and invocation paid_f88a1305-5530-46a5-9f89-b0750eef76be reached succeeded at 06:06:59.952Z. The response contained inspect_url, invocation, resource_access, and status.",
+      "finding": "The paid call completed synchronously from the client's perspective, so no GET polling was required."
+    },
+    {
+      "step": "wait",
+      "elapsed_ms": 0,
+      "evidence": "poll_count=0; the paid response already exposed a succeeded invocation and the live resource access.",
+      "finding": "The documented asynchronous recovery branch was not needed for this offer."
+    },
+    {
+      "step": "result_status",
+      "elapsed_ms": 183,
+      "evidence": "Authorized GET /v1/agent-inboxes/{id} returned HTTP 200, state active, the same inbox identity, and exactly the purchased one-hour expiry.",
+      "finding": "The mailbox address and both authorities are deliberately withheld from this public packet."
+    },
+    {
+      "step": "email_delivery",
+      "elapsed_ms": 7450,
+      "evidence": "A controlled SMTP account sent one plain-text message. Ausca recorded it at 06:07:03.323Z, 7,450 ms after inbox creation; this is a conservative upper bound because the exact SMTP send-start timestamp was lost in the client-side reporting error.",
+      "finding": "The message arrived with the expected subject, body token, and zero attachments."
+    },
+    {
+      "step": "message_list",
+      "elapsed_ms": 252,
+      "evidence": "Authorized GET /messages returned HTTP 200 with one message and an opaque cursor.",
+      "finding": "One bounded list read was enough; a second 30-second wait was not needed."
+    },
+    {
+      "step": "message_read",
+      "elapsed_ms": 178,
+      "evidence": "Authorized GET /messages/{message_id} returned HTTP 200. The controlled subject and unique text token matched, and attachment_count was zero.",
+      "finding": "The normalized plain-text result was sufficient to prove end-to-end delivery without rendering HTML or opening attachments."
+    },
+    {
+      "step": "result_validation",
+      "elapsed_ms": 407,
+      "evidence": "The authoritative invocation read returned succeeded. Its output passed agent-inbox.output.schema.json; the raw schema hash reproduced b7435b...d63c6 and compact JSON reproduced output_digest d36454...9a95.",
+      "finding": "Both the published schema binding and output commitment validated."
+    },
+    {
+      "step": "receipt",
+      "elapsed_ms": 351,
+      "evidence": "GET https://runx.ai/r/54e383b06045... returned HTTP 200 and states that Ausca Agent Inbox completed. It dates the notarization to Sep 18, 2026 at 6:08 AM.",
+      "finding": "The page does not display the 0.05 USDC amount, asset, network, payer, or transaction, despite the bounty asking the reviewer to confirm price on this page."
+    },
+    {
+      "step": "receipt_json_link",
+      "elapsed_ms": 300,
+      "evidence": "The receipt page advertises rel=alternate application/json at /v1/receipts/notarizations/54e383b06045..., but a direct GET returned HTTP 404.",
+      "finding": "The public page's machine-readable receipt link is dead."
+    },
+    {
+      "step": "delete",
+      "elapsed_ms": 408,
+      "evidence": "DELETE /v1/agent-inboxes/{id} returned HTTP 200 with status deleted in 213 ms; a separate authorized status read in 195 ms returned state deleted.",
+      "finding": "Deletion was acknowledged and independently confirmed."
+    },
+    {
+      "step": "total_elapsed",
+      "elapsed_ms": 54250,
+      "evidence": "Measured conservatively from the Base settlement block at 06:06:55Z through the final verified deletion at 06:07:49.250Z, including recovery from one client-side report error.",
+      "finding": "The paid inbox, real message, read, recovery replay, and deletion all completed in under one minute with exactly one 0.05 USDC charge."
+    }
+  ],
+  "proposed_change": "Make the discovery and proof surfaces internally consistent: give /.well-known/x402 a service-neutral description, include the route and schema URLs in GET /v1/offers/{offer_id}, and make the public receipt plus its advertised JSON alternate expose the settled amount, asset, network, payer, transaction, service, and completion time. This would let a new client discover the inbox from one path and let the stated review gate verify the purchase from one proof surface."
+}
