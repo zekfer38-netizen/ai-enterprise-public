@@ -133,7 +133,7 @@
     {
       "step": "payment",
       "elapsed_ms": 976,
-      "evidence": "A measured authenticated replay of the exact 331-byte request returned HTTP 200 and the original invocation. The wallet was 0.66 USDC before and after that replay, proving no second charge. The original Base transaction transferred exactly 50000 atomic USDC from the payer to payTo and has status 1 in block 51461134.",
+      "evidence": "A measured authenticated replay of the exact 446-byte request returned HTTP 200 and the original invocation. The wallet was 0.66 USDC before and after that replay, proving no second charge. The original Base transaction transferred exactly 50000 atomic USDC from the payer to payTo and has status 1 in block 51461134.",
       "finding": "Idempotent recovery worked after the client lost the first response's capability."
     },
     {
