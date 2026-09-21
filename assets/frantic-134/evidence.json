@@ -1,0 +1,102 @@
+{
+  "summary": "Independent paid end-to-end Browser Session run for Frantic #134. The live Ausca catalog was resolved, an unsigned request returned the x402 v2 challenge, the exact envelope was paid on Base, CDP opened https://example.com and returned the title Example Domain, and the browser lease was closed before expiry.",
+  "claim_id": "2d64679b-8ff9-4e5a-a635-4e405b76e838",
+  "offer_id": "browser.session",
+  "offer_revision": "browser-duration-r3",
+  "offer_revision_digest": "sha256:d3f408b995bed34d613543d1e810c9dde96e83d21b6f195afcb2b73142ada99f",
+  "input_schema_digest": "sha256:b61ca378ca30dc89969629b0b69c9ee36343dbb77441ff757853fa871ba0068f",
+  "output_schema_digest": "sha256:82b79fb36c669dcac6660128ce0b9d49a79d2aaa59d7ddc21f72b3c5435866ce9",
+  "invocation_id": "paid_cb4714a8-d13c-4969-a57e-94a364150175",
+  "output_digest": "sha256:d74457f8577c98b76d0158448418171272f00d77853a9e59a255358e6f7f8073",
+  "payer": "0x8A17AffDD899e5C1232C534CF1E4DD05d8eD27AD",
+  "settlement": {
+    "network": "eip155:8453",
+    "asset": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
+    "amount_base_units": "50000",
+    "amount_usd": 0.05,
+    "pay_to": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+    "transaction": "0x797d645de786b63f38d5d7903d1d60466cafc17850ccd45b256ce659a40dcb9e",
+    "transaction_receipt_status": "0x1"
+  },
+  "receipt_ref": {
+    "type": "receipt",
+    "uri": "runx:receipt:sha256:6ced80fa492f930d41958df353f7e8bb5e0faa175b969c9b30d6709ff9d9776b",
+    "public_url": "https://runx.ai/r/6ced80fa492f930d41958df353f7e8bb5e0faa175b969c9b30d6709ff9d9776b"
+  },
+  "observations": [
+    {
+      "step": "discovery",
+      "elapsed_ms": 0,
+      "surface": "https://ausca.com/catalog.json",
+      "result": "Resolved browser.session, browser-duration-r3 and all three schema digests; the bounty page itself did not provide these bindings."
+    },
+    {
+      "step": "challenge",
+      "elapsed_ms": 1043,
+      "status_code": 402,
+      "x402_version": 2,
+      "scheme": "exact",
+      "network": "eip155:8453",
+      "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bdA02913",
+      "amount_base_units": "50000",
+      "pay_to": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422"
+    },
+    {
+      "step": "payment",
+      "elapsed_ms": 9975,
+      "payer": "0x8A17AffDD899e5C1232C534CF1E4DD05d8eD27AD",
+      "transaction": "0x797d645de786b63f38d5d7903d1d60466cafc17850ccd45b256ce659a40dcb9e",
+      "settlement_success": true,
+      "transaction_receipt_status": "0x1"
+    },
+    {
+      "step": "invocation",
+      "elapsed_ms": 11091,
+      "status_code": 200,
+      "body_shape": ["inspect_url", "invocation", "resource_access", "status"],
+      "invocation_id": "paid_cb4714a8-d13c-4969-a57e-94a364150175",
+      "state": "succeeded"
+    },
+    {
+      "step": "wait",
+      "elapsed_ms": 0,
+      "poll_count": 0,
+      "result": "The paid response was already terminal with state=succeeded; no invocation poll was needed."
+    },
+    {
+      "step": "result",
+      "elapsed_ms": 204,
+      "resource_status_code": 200,
+      "lease_state": "ready",
+      "cdp_ticket_status_code": 200,
+      "session_id": "brs_G8zTs3ve78jGijVAOaSHJYg9gQuuJYPseLUk5HIRQOM",
+      "page_url": "https://example.com/",
+      "page_title": "Example Domain",
+      "validation": "CDP connected, the public page loaded, document.title and location.href were read, and the target was closed."
+    },
+    {
+      "step": "receipt",
+      "elapsed_ms": 279,
+      "public_url": "https://runx.ai/r/6ced80fa492f930d41958df353f7e8bb5e0faa175b969c9b30d6709ff9d9776b",
+      "output_digest": "sha256:d74457f8577c98b76d0158448418171272f00d77853a9e59a255358e6f7f8073"
+    },
+    {
+      "step": "close",
+      "elapsed_ms": 279,
+      "status_code": 200,
+      "lease_state": "closed",
+      "acknowledged": true
+    },
+    {
+      "step": "correction",
+      "elapsed_ms": 0,
+      "result": "A first paid attempt cost $0.05 but used the CDP endpoint as the target URL because of a host-side variable error. It was closed, disclosed in report.md, and not used as the successful receipt. The second paid attempt above is the delivered run."
+    },
+    {
+      "step": "total",
+      "elapsed_ms": 20081,
+      "started_at": "2026-09-21T06:07:51.674276Z",
+      "finished_at": "2026-09-21T06:08:11.685239Z"
+    }
+  ]
+}
