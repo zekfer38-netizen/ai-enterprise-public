@@ -1,0 +1,90 @@
+{
+  "summary": "A fresh 11.03-second MP3 was committed to Ausca, paid for with x402 on Base, transcribed asynchronously, and verified against the published output schema. The returned source digest matches the committed audio.",
+  "offer": {
+    "id": "media.transcription",
+    "revision": "transcription-bytes-r6",
+    "revision_digest": "sha256:4a9d20f6a8e7cde3a3b92ad951c9e256a6b57ad8309da57eb751660ccafd56fb",
+    "input_schema_digest": "sha256:7104c2ab18922a8af6556e1db88de929bc93338520758702c1aa7c59e311681e",
+    "output_schema_digest": "sha256:e49c0818147668b6e69e4f16d500cb40dc9f3831d8fad9ddf1809be631a9d436"
+  },
+  "artifact": {
+    "artifact_ref": "runx:artifact:sha256:a9b49dfc4f5db22b0ac719a65563d2c68ca1388c900245717c4642d06ed25890",
+    "content_digest": "sha256:bf4a6988043012c95ac9425069f3d36cbb05733c337654ea201c874d70b0f801",
+    "media_type": "audio/mpeg",
+    "media_format": "mp3",
+    "size_bytes": 88320
+  },
+  "invocation_id": "paid_e51cd1fd-787f-49eb-8a57-7cbd7332ab66",
+  "output_digest": "sha256:458ebf34c04469e72ac6f98528bb92ac77196229df827fc8c65c7b55b5919e7c",
+  "observations": [
+    {
+      "step": "discovery",
+      "elapsed_ms": 335,
+      "evidence": "Resolved media.transcription from https://ausca.com/catalog.json and confirmed the live route, revision, schemas, 10 MiB limit, and 0.40 USD minimum price."
+    },
+    {
+      "step": "artifact_commit",
+      "elapsed_ms": 2074,
+      "evidence": "POST https://ausca.com/v1/artifacts returned the immutable reference above; local SHA-256, media type audio/mpeg, and 88320-byte size matched the response."
+    },
+    {
+      "step": "challenge",
+      "elapsed_ms": 3844,
+      "status_code": 402,
+      "x402_version": 2,
+      "scheme": "exact",
+      "network": "eip155:8453",
+      "asset": "0x833589fcd6edb6e08f4c7c32d4f71b54bda02913",
+      "amount_base_units": "400000",
+      "pay_to": "0x26572ff23c6c52bfb1a69cb0c9114a8be443b422",
+      "evidence": "The JSON body returned code=payment_required; the actionable terms arrived in the PAYMENT-REQUIRED header."
+    },
+    {
+      "step": "payment",
+      "elapsed_ms": 6336,
+      "payer": "0x8A17AffDD899e5C1232C534CF1E4DD05d8eD27AD",
+      "amount_usd": 0.40,
+      "transaction": "0x0aa374d29a6e658ce923f2a657d053b6623b88b782b6ca517518f29004b31c67",
+      "settlement_success": true,
+      "transaction_receipt_status": "0x1",
+      "base_block": "0x313df0b"
+    },
+    {
+      "step": "invocation",
+      "elapsed_ms": 229,
+      "status_code": 202,
+      "invocation_id": "paid_e51cd1fd-787f-49eb-8a57-7cbd7332ab66",
+      "body_shape": "status=accepted, invocation.state=admitted, inspect_url present"
+    },
+    {
+      "step": "wait",
+      "elapsed_ms": 28600,
+      "poll_count": 14,
+      "evidence": "GET /v1/invocations/paid_e51cd1fd-787f-49eb-8a57-7cbd7332ab66 reached state=succeeded; the 202 response supplied Retry-After: 2."
+    },
+    {
+      "step": "result",
+      "elapsed_ms": 1800,
+      "evidence": "The output validated against https://ausca.com/schemas/offers/transcription.output.schema.json. It contains schema=ausca.transcription.output.v1, language_code=en-AU, one timed segment from 0 to 11.03 seconds, and source_digest equal to the committed audio digest."
+    },
+    {
+      "step": "receipt",
+      "elapsed_ms": 1700,
+      "public_url": "https://runx.ai/r/82097c38c1158fd924612a8947c5eff6b11f43b3b76f6c797cb8ddb423b42691",
+      "receipt_json": "https://api.runx.ai/v1/receipts/notarizations/82097c38c1158fd924612a8947c5eff6b11f43b3b76f6c797cb8ddb423b42691",
+      "evidence": "The receipt page and JSON endpoint returned HTTP 200, identify Ausca Media Transcription, declare 0.40 USD, and label the proof L1 Notarized/hash-only."
+    },
+    {
+      "step": "total",
+      "elapsed_ms": 44918,
+      "evidence": "Measured command timings are rounded wall-clock timings for the completed run."
+    }
+  ],
+  "quality_checks": {
+    "output_schema_valid": true,
+    "source_digest_matches": true,
+    "receipt_http_status": 200,
+    "receipt_json_http_status": 200,
+    "payment_transaction_status": "0x1"
+  }
+}
