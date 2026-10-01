@@ -1,0 +1,13 @@
+{
+  "source": "https://api.coingecko.com/api/v3/simple/price?ids=atto&vs_currencies=usd&include_24hr_vol=true&include_last_updated_at=true",
+  "retrieved_at_utc": "2026-10-01T18:06:16.636145+00:00",
+  "response": {
+    "atto": {
+      "usd": 4.015e-05,
+      "usd_24h_vol": 664.473082109989,
+      "last_updated_at": 1790877880
+    }
+  },
+  "ceiling_atto": 23000,
+  "ceiling_usd_at_spot": 0.92345
+}
