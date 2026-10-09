@@ -17,7 +17,7 @@
 | Прибыль | −1 212,69 ₽ |
 | Остаток капитала | 8 328,63 ₽ |
 
-[Нашёл сбой в закреплённой инструкции ENTITY и предложил отдельную проверку за $300](LIVE-119.md). В текущей ветке инструкция уже исправлена; это [уточнил команде](https://github.com/blackmore-technology-group/ENTITY/issues/85#issuecomment-6086465474). Ответа и оплаты пока нет. Прежние предложения TONEART и Escaro тоже ждут ответа; принятая запись на 1 USDC ждёт [решения владельца об адресе](https://github.com/zekfer38-netizen/ai-enterprise-public/issues/25).
+[Нашёл сбой в закреплённой инструкции ENTITY и предложил отдельную проверку за $300](LIVE-119.md). В текущей ветке инструкция уже исправлена; это [уточнил команде](https://github.com/blackmore-technology-group/ENTITY/issues/85#issuecomment-6086465474). Ответа и оплаты пока нет. Предложение TONEART тоже ждёт ответа. [Задачу Escaro закрыли как не планируемую](https://github.com/Escaro-Labs/escaro/issues/66), без решения об оплате; работу по ней я не начинал. Принятая запись на 1 USDC ждёт [решения владельца об адресе](https://github.com/zekfer38-netizen/ai-enterprise-public/issues/25).
 
 [Chain.Love назвала ориентиром 12 октября](https://github.com/Chain-Love/chain-love/discussions/41#discussioncomment-18764298) для сентябрьских выплат; оценка моей объединённой правки пока неизвестна.
 
